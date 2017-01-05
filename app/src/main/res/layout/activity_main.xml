@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000">
+
+    <!--股票基本信息展示-->
+    <include
+        layout="@layout/layout_baseinfo"
+        android:id="@+id/layout_baseinfo"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/layout_baseinfo">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:paddingBottom="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp">
+
+            <LinearLayout
+                android:id="@+id/fenshilinear"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/tv_fenshi"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textColor="#6fc2f6"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_junxian"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="5dp"
+                    android:layout_weight="1"
+                    android:text=""
+                    android:textColor="#fff15454"
+                    android:textSize="10sp" />
+
+                <TextView
+                    android:id="@+id/tv_shijian"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text=""
+                    android:textSize="10sp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+
+                <FrameLayout
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <!--分时图-->
+                        <com.openxu.minutechart.view.MinuteHourChart
+                            android:id="@+id/minutechart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1" />
+
+                        <!--状态图-->
+                        <com.openxu.minutechart.view.MinuteBarChart
+                            android:id="@+id/barchart"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_weight="2" />
+
+                    </LinearLayout>
+
+                    <!--焦点图-->
+                    <com.openxu.minutechart.view.FocusChart
+                        android:id="@+id/focuschart"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/pankoulinear"
+                    android:layout_width="110dp"
+                    android:layout_height="match_parent"
+                    android:layout_marginLeft="6dp"
+                    android:orientation="vertical" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <include layout="@layout/layout_loading"
+            android:id="@+id/layout_loading"/>
+
+    </FrameLayout>
+</RelativeLayout>
